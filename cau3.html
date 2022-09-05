@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tìm số ký tự nguyên âm</title>
+  </head>
+  <body>
+    <script>
+      let arrayStr = ["a", "o", "e", "u", "i"];
+      function searchArray(array) {
+        let count = 0;
+        for (a = 0; a < array.length; a++) {
+          for (s = 0; s < arrayStr.length; s++) {
+            if (array[a].toLowerCase() == arrayStr[s]) {
+              count++;
+            }
+          }
+        }
+        if (count != 0) {
+          return count;
+        } else {
+          return false;
+        }
+      }
+      let array = prompt("Nhập vào một chuỗi ký tự").split("");
+      alert(
+        `Chuỗi [${array}] có ${searchArray(array)} 
+        ký tự âm của mảng [${arrayStr}]`
+      );
+    </script>
+  </body>
+</html>

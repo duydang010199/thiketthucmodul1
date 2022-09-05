@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giải phương trình bậc 2</title>
+  </head>
+  <body>
+    <div>Nhập số a: <input type="number" id="numberA" /><br /></div>
+    <div>Nhập số b: <input type="number" id="numberB" /><br /></div>
+    <div>Nhập số c: <input type="number" id="numberC" /></div>
+    <button onclick="nhapNumber()">Check</button>
+    <script>
+      function nhapNumber() {
+        let a = Number(document.getElementById("numberA").value);
+        let b = Number(document.getElementById("numberB").value);
+        let c = Number(document.getElementById("numberC").value);
+        if (a == 0 && (b == 0) & (c == 0)) {
+          return alert("Phương trình vô số nghiệm");
+        } else if (a == 0 && b == 0) {
+          return alert("Phương trình không xác định");
+        } else if (a == 0) {
+          return alert(`Phương trình có nghiệm là x = ${-c / b}`);
+        }
+        result(a, b, c);
+        function result(a, b, c) {
+          const delta = b * b - 4 * a * c;
+          if (delta < 0) {
+            return alert("Phương trình vô nghiệm");
+          } else if (delta == 0) {
+            return alert(
+              `Phương trình có nghiệm kép là x1 = x2 = ${(-b / 2) * a}`
+            );
+          } else if (delta > 0) {
+            return alert(
+              `Phương trình có 2 nghiệm phân biệt là x1 = ${
+                (-b + Math.sqrt(delta)) / (2 * a)
+              } 
+              và x2 = ${(-b - Math.sqrt(delta)) / (2 * a)}`
+            );
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
